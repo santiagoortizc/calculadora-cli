@@ -1,6 +1,6 @@
 # Calculadora CLI
 
-Calculadora de línea de comandos escrita en Python puro. Soporta las cuatro operaciones básicas con manejo robusto de errores.
+Calculadora de línea de comandos escrita en Python. Soporta las 7 principales operaciones aritmeticas del lenguaje.
 
 ## Uso
 
@@ -17,7 +17,7 @@ python calculadora.py 10 + 5
 python calculadora.py 9 / 4
 # 9 / 4 = 2.25
 
-python calculadora.py 7.5 "*" 2
+python calculadora.py 7.5 * 2
 # 7.5 * 2 = 15
 
 python calculadora.py 5 / 0
@@ -27,8 +27,6 @@ python calculadora.py hola + 3
 # Error: 'hola' no es un número válido.
 ```
 
-> En algunos terminales el `*` necesita comillas para evitar que el shell lo expanda como glob.
-
 ## Operadores soportados
 
 | Operador | Operación       |
@@ -37,35 +35,10 @@ python calculadora.py hola + 3
 | `-`      | Resta           |
 | `*`      | Multiplicación  |
 | `/`      | División        |
+| `//`     | División entera |
+| `%`      | Módulo          |
+| `**`     | Potencia        |
 
-## Instalación
-
-No requiere dependencias externas. Solo necesitas Python 3.8+.
-
-```bash
-git clone https://github.com/santiagoortizc/calculadora-cli.git
-cd calculadora-cli
-python calculadora.py 10 + 5
-```
-
-## Tests
-
-```bash
-# Instalar pytest (única dependencia de desarrollo)
-pip install pytest
-
-# Ejecutar todos los tests
-python -m pytest tests/ -v
-```
-
-Salida esperada:
-
-```
-tests/test_calculadora.py::TestParsearNumero::test_entero_positivo    PASSED
-tests/test_calculadora.py::TestParsearNumero::test_entero_negativo    PASSED
-...
-20 passed in 0.05s
-```
 
 ## Estructura del proyecto
 

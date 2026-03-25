@@ -1,9 +1,3 @@
-"""
-Calculadora CLI
-Uso: python calculadora.py <numero1> <operador> <numero2>
-Ejemplo: python calculadora.py 10 + 5
-"""
-
 import argparse
 import sys
 
@@ -29,6 +23,12 @@ def dividir(a: float, b: float) -> float:
     return a / b
 
 
+def division_entera(a: float, b: float) -> float:
+    if b == 0:
+        raise ValueError("No se puede dividir entre cero.")
+    return a // b
+
+
 def modulo(a: float, b: float) -> float:
     if b == 0:
         raise ValueError("No se puede dividir entre cero.")
@@ -44,6 +44,7 @@ OPERACIONES = {
     "-": restar,
     "*": multiplicar,
     "/": dividir,
+    "//": division_entera,
     "%": modulo,
     "**": potencia,
 }
