@@ -29,11 +29,23 @@ def dividir(a: float, b: float) -> float:
     return a / b
 
 
+def modulo(a: float, b: float) -> float:
+    if b == 0:
+        raise ValueError("No se puede dividir entre cero.")
+    return a % b
+
+
+def potencia(a: float, b: float) -> float:
+    return a**b
+
+
 OPERACIONES = {
     "+": sumar,
     "-": restar,
     "*": multiplicar,
     "/": dividir,
+    "%": modulo,
+    "**": potencia,
 }
 
 
