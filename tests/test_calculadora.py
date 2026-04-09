@@ -79,6 +79,18 @@ class TestMultiplicacion:
         assert calcular("-3", "*", "4") == "-12"
 
 
+class TestPotencia:
+    def test_basica(self):
+        assert calcular("3", "**", "3") == "27"
+
+    def test_por_cero(self):
+        assert calcular("99", "**", "0") == "1"
+
+    def test_negativos(self):
+        assert calcular("-3", "**", "4") == "81"
+        assert calcular("-3", "**", "3") == "-27"
+
+
 class TestDivision:
     def test_division_exacta(self):
         assert calcular("10", "/", "2") == "5"
@@ -92,6 +104,31 @@ class TestDivision:
             calcular("5", "/", "0")
 
 
+class TestDivisionEntera:
+    def test_division_exacta(self):
+        assert calcular("10", "//", "3") == "3"
+
+    def test_division_decimal(self):
+        resultado = calcular("1", "//", "3")
+        assert resultado.startswith("0")
+
+    def test_division_por_cero(self):
+        with pytest.raises(ValueError, match="dividir entre cero"):
+            calcular("5", "//", "0")
+
+
+class TestModulo:
+    def test_modulo_basico(self):
+        assert calcular("10", "%", "3") == "1"
+
+    def test_modulo_con_dividendo_menor(self):
+        assert calcular("1", "%", "3") == "1"
+
+    def test_division_por_cero(self):
+        with pytest.raises(ValueError, match="dividir entre cero"):
+            calcular("5", "%", "0")
+
+
 class TestErrores:
     def test_operador_invalido(self):
         with pytest.raises(ValueError, match="no reconocido"):
@@ -102,5 +139,5 @@ class TestErrores:
             calcular("cinco", "+", "3")
 
     def test_num2_invalido(self):
-        with pytest.raises(ValueError):
+        with pytest.raises(ValueError, match="no es un número válido"):
             calcular("5", "+", "tres")

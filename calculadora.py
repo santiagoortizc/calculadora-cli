@@ -95,7 +95,7 @@ def calcular(num1: str, operador: str, num2: str) -> str:
 def construir_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="calculadora",
-        description="Calculadora de línea de comandos. Soporta +, -, *, /",
+        description="Calculadora de línea de comandos. Soporta +, -, *, /, //, %, **",
         epilog="Ejemplo: python calculadora.py 10 / 3",
     )
     parser.add_argument("num1", help="Primer número")
